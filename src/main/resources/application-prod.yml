@@ -1,0 +1,11 @@
+youyou:
+  jwt:
+    phpSystemUrl: https://ai-system.100daishu.com/
+    platform: ai-production_backstage_platform_!@#
+    student: ai-spystudentproduction!@#
+    teacher: ai-teacherproductionsec!@#
+    wxapi: ai-wxapiproductionsec!@#
+
+redis:
+  hostName: r-2zehvkxs0qe5i27ufq.redis.rds.aliyuncs.com
+  password: mx5oZD6eVF

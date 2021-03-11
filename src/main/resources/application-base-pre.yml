@@ -1,0 +1,11 @@
+youyou:
+  jwt:
+    phpSystemUrl: https://zxxb-system-pre.100daishu.com/
+    platform: pre_backstage_platform_!@#
+    student: dspystudent!@#
+    teacher: teachersec!@#
+    wxapi: wxapisec!@#
+
+redis:
+  hostName: r-2ze63befc9a1e734.redis.rds.aliyuncs.com
+  password: YZL1luFgXX

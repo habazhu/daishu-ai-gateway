@@ -1,0 +1,57 @@
+youyou:
+  jwt:
+    god : false
+    phpSystemUrl: https://ai-system-test.100daishu.com/
+    platform: ai-testsecret
+    student: ai-spystudent!@#
+    teacher: ai-teachersec!@#
+    wxapi: ai-wxapisec!@#
+
+
+redis:
+  hostName: 127.0.0.1
+  password: 123456
+#负载均衡
+mybalance:
+  open : true
+  #灰度
+  grayscale:
+    - order: -129
+      id: ver等于2.0.0的queryPort请求,投射到9091,ver不等于2.0.0的queryPort分发到其他服
+      ip: 192.168.0.225:9091
+      ver: '=2.0.0'
+      url: '/statistics/testServer/queryPort'
+      exclusive : 'trueUrl'
+    - order: -128
+      id: ver>=2.4.0的所有请求,投射到9091,ver小于2.4.0分发到其他服
+      ip: 192.168.0.225:9092
+      ver: '>2.4.0'
+      url: '*'
+      exclusive : 'trueVer'
+    - order: -127
+      id: studentId=123的,url=queryPort 投射到9091,其他请求随机投放
+      ip: 192.168.0.225:9091
+      studentId: 123
+      url: '/statistics/testServer/queryPort2'
+      exclusive : trueUrl
+    - order: -125
+      id: studentId=123的,url=queryPort 投射到9091,其他请求随机投放
+      ip: 192.168.0.225:9091
+      studentId: 123
+      url: '*'
+      exclusive : '*'
+
+logging:
+  level:
+    org:
+      springframework:
+        http:
+          server:
+            reactive: trace
+        cloud:
+          gateway: trace
+        web:
+          reactive: trace
+        boot:
+          autoconfigure:
+            web: trace

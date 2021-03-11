@@ -1,0 +1,13 @@
+youyou:
+  jwt:
+    phpSystemUrl: https://ai-system-test.100daishu.com/
+    platform: ai-testsecret
+    student: ai-spystudent!@#
+    teacher: ai-teachersec!@#
+    wxapi: ai-wxapisec!@#
+
+redis:
+  hostName: r-2zegep2r1gnz0kl3ba.redis.rds.aliyuncs.com
+  password: JL4Kvwzx8m
+
+

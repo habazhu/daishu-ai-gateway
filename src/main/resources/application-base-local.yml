@@ -1,0 +1,26 @@
+youyou:
+  jwt:
+    phpSystemUrl: https://zxxb-system-test.100daishu.com/
+    platform: testsecret
+    student: dspystudent!@#
+    teacher: teachersec!@#
+    wxapi: wxapisec!@#
+
+redis:
+  hostName: 127.0.0.1
+  password: 123456
+
+logging:
+  level:
+    org:
+      springframework:
+        http:
+          server:
+            reactive: trace
+        cloud:
+          gateway: trace
+        web:
+          reactive: trace
+        boot:
+          autoconfigure:
+            web: trace

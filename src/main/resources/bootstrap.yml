@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: daishu-gateway
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      config:
+        enabled: true
+        # watch选项为配置监视功能，主要监视配置的改变
+        watch:
+          enabled: true
+          delay: 10000
+          wait-time: 30
+        # 表示如果没有发现配置，是否抛出异常，true为是，false为否，当为false时，consul会打印warn级别的日志信息
+        fail-fast: false
+        # 表示使用的配置格式
+        format: yaml
+        # 配置所在的应用目录名称
+        prefix: config
+        name: ${spring.application.name}
+      discovery:
+        register: true
+        prefer-ip-address: true
+        port: ${SERVER_PORT:${server.port}}
+        healthCheckPath: /actuator/health
+        healthCheckInterval: 5s
+        # 设置健康检查失败多长时间后，取消注册
+        health-check-critical-timeout: 15s
+        instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}
+        service-name: gateway-server
+        catalog-services-watch-delay: 1000
+        #不使用心跳检测主动 使用 健康检测check方式被动
+        heartbeat:
+          enabled: true
+          ttl-value: 3

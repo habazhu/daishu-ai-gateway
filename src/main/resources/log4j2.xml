@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+	<Properties>
+		<Property name="LOG_HOME">logs</Property>
+	</Properties>
+
+	<Appenders>
+		<Console name="console" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d{HH:mm:ss:SS} %-5level %class{36} %L %M - %msg%xEx%n"/>
+		</Console>
+		<RollingRandomAccessFile name="logfile" fileName="${LOG_HOME}/app.log" filePattern="${LOG_HOME}/app-%d{yyyy-MM-dd}.log">
+			<PatternLayout pattern="%d{HH:mm:ss:SS} [%t] %-5level %logger{36} - %msg%n" />
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" modulate="true" />
+			</Policies>
+			<DefaultRolloverStrategy max="30" />
+		</RollingRandomAccessFile>
+	</Appenders>
+	<Loggers>
+		<Root level="info">
+			<AppenderRef ref="logfile" />
+			<AppenderRef ref="console"/>
+		</Root>
+	</Loggers>
+</Configuration>
